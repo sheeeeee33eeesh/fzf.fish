@@ -8,6 +8,7 @@ function _fzf_search_processes --description "Search all running processes. Repl
     set -f processes_selected (
         $ps_cmd -A -opid,command | \
         _fzf_wrapper --multi \
+                    --bind="alt-j:preview-down,alt-k:preview-up" \
                     --prompt="Processes> " \
                     --query (commandline --current-token) \
                     --ansi \
